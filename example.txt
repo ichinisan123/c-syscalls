@@ -1,0 +1,14 @@
+Parameters:
+fd: This is the file descriptor
+of the input source from which data is to be read.
+File descriptors are integer values
+representing open files, pipes, sockets,
+or other I/O devices. Standard input (keyboard)
+typically has a file descriptor of 0. 
+buf: This is a pointer to the buffer
+(a memory location) where the read data will be stored. 
+It should be large enough to accommodate
+the count of bytes requested. 
+count: This specifies the maximum number
+of bytes to read from the input
+source into the buf.
