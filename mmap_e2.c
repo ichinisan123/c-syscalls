@@ -24,6 +24,7 @@ int main(int argc, char *argv[]) {
 
   struct stat statbuf;
   int err = fstat(fd, &statbuf);
+  printf("err: %d\n", err);
   if (err < 0) {
     printf("\n\"%s \" could not open\n", filepath);
     exit(2);
@@ -31,6 +32,7 @@ int main(int argc, char *argv[]) {
 
   char *ptr =
       mmap(NULL, statbuf.st_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+  printf("ptr: %p\n", ptr);
   if (ptr == MAP_FAILED) {
     printf("Mapping Failed\n");
     return 1;
