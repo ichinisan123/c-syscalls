@@ -4,9 +4,11 @@
 /// write
 /// Writes to a specified file using a file descriptor.
 /// Before using this call, you must first obtain a file
-/// descriptor using the
-/// open syscall. Returns bytes written successfully.
+/// descriptor using the open syscall.
+/// Returns bytes written successfully.
+
 /// ssize_t write(int fd, const void *buf, size_t count)
+
 /// fd - file descriptor
 /// buf - pointer to the buffer to write
 /// count - number of bytes to write
