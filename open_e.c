@@ -5,17 +5,24 @@
 
 /// @brief
 /// open
-/// Opens or creates a file, depending on the flags passed to the call. Returns
-/// an integer with the file descriptor.
+/// Opens or creates a file, depending on the flags passed to the call.
+/// Returns an integer with the file descriptor.
+///
 /// int open(const char *pathname, int flags, mode_t mode)
 /// pathname - pointer to a buffer containing the full path and filename
 /// flags - integer with operation flags (see below)
 /// mode - (optional) defines the permissions mode if file is to be created
+///
 /// 0644 is a common mode, which means read/write for owner 6, and read for
 /// group and others 4 4. Returns a file descriptor (an integer) on success, or
-/// -1 on error. close Close a file descriptor. After successful execution, it
-/// can no longer be used to reference the file. int close(int fd) fd - file
-/// descriptor to close
+/// -1 on error.
+///
+/// close
+/// Close a file descriptor. After successful execution, it
+/// can no longer be used to reference the file.
+///
+/// int close(int fd)
+/// fd - file descriptor to close
 /// @return
 int main() {
   int fd;

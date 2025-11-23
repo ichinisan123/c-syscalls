@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "signal.h": "c",
-        "ioctl.h": "c"
+        "ioctl.h": "c",
+        "types.h": "c",
+        "unistd.h": "c"
     }
 }

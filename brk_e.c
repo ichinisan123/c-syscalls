@@ -6,7 +6,9 @@
 
 /// brk
 /// Allows for altering the program break that defines end of process’s data
-/// segment. int brk(void *addr) addr – new program break address pointer
+/// segment.
+/// int brk(void *addr)
+/// addr – new program break address pointer
 /// Returns zero when successful.
 int main() {
   void *initial_break;
