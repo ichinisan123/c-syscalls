@@ -1,35 +1,24 @@
+#include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
 
-// Global variable
-int gvar = 66;
+void show_addresses(int a, int b, ...) {
+  printf("Address of a: %p\n", (void*)&a);
+  printf("Address of b: %p\n", (void*)&b);
 
-// Constant global variable
-const int cgvar = 1010;
+  va_list args;
+  va_start(args, b);
 
-// uninitialized global variable
-int ugvar;
+  // On simple architectures, args would point right after b
+  printf("va_list points to: %p\n", (void*)args);
 
-void foo() {
-  // Local variable
-  int lvar = 1;
-  printf("Address of lvar:\t%p\n", (void*)&lvar);
+  // Show first few variadic arguments
+  printf("First var arg: %d at %p\n", va_arg(args, int), (void*)args);
+  printf("Second var arg: %d at %p\n", va_arg(args, int), (void*)args);
+
+  va_end(args);
 }
 
 int main() {
-  // Heap variable
-  int* hvar = (int*)malloc(sizeof(int));
-
-  // Checking and comparing address of different
-  // elements of program that should be stored in
-  // different segements of the memory
-  printf("Address of foo:\t\t%p\n", (void*)&foo);
-  printf("Address of main:\t%p\n", (void*)&main);
-  printf("Address of cgvar:\t%p\n", (void*)&cgvar);
-  printf("Address of gvar:\t%p\n", (void*)&gvar);
-  printf("Address of ugvar:\t%p\n", (void*)&ugvar);
-  printf("Address of hvar:\t%p\n", (void*)hvar);
-  foo();
-
+  show_addresses(10, 20, 30, 40, 50);
   return 0;
 }
